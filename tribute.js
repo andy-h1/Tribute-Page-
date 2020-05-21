@@ -6,9 +6,10 @@ function handleCardButtonClick(event) {
   console.log('CLICK');
   const button = event.currentTarget;
   const card = button.closest('.card');
-  const imgSrc = card.querySelector('img').src;
-  const imgDataSrc = card.dataset.altImg;
+  const imgDataSrc = card.dataset.alt;
+  console.log(imgDataSrc);
   const desc = card.dataset.description;
+  console.log(desc);
   const name = card.querySelector('h2').textContent;
   modalInner.innerHTML = `
     <img width="600" height="600" src="${imgDataSrc}" alt="${name}"/>
