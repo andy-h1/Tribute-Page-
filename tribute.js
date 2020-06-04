@@ -1,6 +1,24 @@
 const cardButtons = document.querySelectorAll('.card button');
 const modalOuter = document.querySelector('.modal-outer');
 const modalInner = document.querySelector('.modal-inner');
+const endpoint = 'https://api.github.com/users/d-pagey';
+const userEl = document.querySelector('.user');
+
+const danPromise = fetch(endpoint);
+danPromise.then(response => {
+  return response.json();
+}).then(data => {
+  console.log(data);
+  console.log(data.name);
+  console.log(data.blog);
+  console.log(data.company);
+  userEl.textContent = `${data.name} ${data.company}`;
+}).catch(handleError)
+
+function handleError(err) {
+  console.log("ERROR!");
+  console.log(err);
+}
 
 function handleCardButtonClick(event) {
   console.log('CLICK');
